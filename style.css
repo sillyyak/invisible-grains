@@ -5,9 +5,12 @@ head {
   font-optical-sizing: auto;
 }
 
+* {
+  margin: 0;
+}
+
 body {
   background-color: #fef2e6;
-  margin: 50px;
   color: black;
 }
 
@@ -22,21 +25,12 @@ h1 {
   border-radius: 10px;
 }
 
-p {
-  text-decoration: none;
-  margin: 50px;
-  font-size: 20px;
-  font-weight: normal;
+p + p {
+  margin-top: 2rem;
 }
 
 img:hover {
   transform: scale(1.1);
-}
-
-img {
-  height: 300px;
-  margin: 10px;
-  border-radius: 15px;
 }
 
 #nav {
@@ -49,11 +43,16 @@ img {
   position: sticky;
   top: 0;
   color: black;
+  z-index: 1;
 }
 
 #nav li {
   display: inline-block;
   padding: 0 2em;
+}
+
+#nav a {
+  text-decoration: none;
 }
 
 #caption {
@@ -80,4 +79,21 @@ ul {
 
 li + li {
   margin-top: 0.5rem;
+}
+
+section {
+  padding: 2rem 4rem;
+  max-width: 120ch;
+  margin: 0 auto;
+}
+
+.photogrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+
+  img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
 }
