@@ -15,113 +15,92 @@ let snake = [
   { row: 5, col: 1 },
   { row: 5, col: 2 },
   { row: 5, col: 3 },
-  { row: 5, col: 4 }
+  { row: 5, col: 4 },
 ];
 
 let apple = null;
 let bread = null;
 
-function drawBoard()
-{
+function drawBoard() {
   let checker = false;
 
-  for (let row = 0; row < boardSize; row++)
-  {
-    for (let col = 0; col < boardSize; col++)
-    {
+  for (let row = 0; row < boardSize; row++) {
+    for (let col = 0; col < boardSize; col++) {
       checker = !checker;
-      if(checker)
-      {
-        ctx.fillStyle = "#65b335"
+      if (checker) {
+        ctx.fillStyle = "#65b335";
+      } else {
+        ctx.fillStyle = "green";
       }
-      else
-      {
-        ctx.fillStyle = "green"
-      }
-       
+
       ctx.fillRect(col * tileSize, row * tileSize, tileSize, tileSize);
     }
     checker = !checker;
   }
 }
 
-function drawSnake()
-{
+function drawSnake() {
   ctx.fillStyle = "blue";
-  for (let part of snake)
-  {
+  for (let part of snake) {
     ctx.fillRect(part.col * tileSize, part.row * tileSize, tileSize, tileSize);
   }
 }
 
-function drawApple()
-{
+function drawApple() {
   if (!apple) return;
 
   ctx.fillStyle = "red";
   ctx.fillRect(apple.col * tileSize, apple.row * tileSize, tileSize, tileSize);
 }
 
-function drawBread()
-{
+function drawBread() {
   if (!bread) return;
 
   ctx.fillStyle = "brown";
   ctx.fillRect(bread.col * tileSize, bread.row * tileSize, tileSize, tileSize);
 }
 
-function spawnApple()
-{
-  while (true)
-  {
+function spawnApple() {
+  while (true) {
     const row = Math.floor(Math.random() * boardSize);
     const col = Math.floor(Math.random() * boardSize);
 
     let isOnSnake = false;
-    for (let part of snake)
-    {
-      if (part.row === row && part.col === col)
-      {
+    for (let part of snake) {
+      if (part.row === row && part.col === col) {
         isOnSnake = true;
         break;
       }
     }
 
-    if (!isOnSnake)
-    {
+    if (!isOnSnake) {
       apple = { row, col };
       break;
     }
   }
 }
 
-function spawnBread()
-{
-  while (true)
-  {
+function spawnBread() {
+  while (true) {
     const row = Math.floor(Math.random() * boardSize);
     const col = Math.floor(Math.random() * boardSize);
 
     let isOnSnake = false;
-    for (let part of snake)
-    {
-      if (part.row === row && part.col === col)
-      {
+    for (let part of snake) {
+      if (part.row === row && part.col === col) {
         isOnSnake = true;
         break;
       }
     }
 
-    if (!isOnSnake)
-    {
+    if (!isOnSnake) {
       bread = { row, col };
       break;
     }
   }
 }
 
-function moveSnake()
-{
+function moveSnake() {
   direction = nextDirection;
 
   const lastSegment = snake[snake.length - 1];
@@ -135,75 +114,62 @@ function moveSnake()
   if (
     head.row < 0 || head.row >= boardSize ||
     head.col < 0 || head.col >= boardSize
-  )
-  {
+  ) {
     endGame("You hit the wall :(");
     return;
   }
 
   let hitSelf = false;
-  for (let part of snake)
-  {
-    if (part.row === head.row && part.col === head.col)
-    {
+  for (let part of snake) {
+    if (part.row === head.row && part.col === head.col) {
       hitSelf = true;
       break;
     }
   }
 
-  if (hitSelf)
-  {
+  if (hitSelf) {
     endGame("You ate yourself :(");
     return;
   }
 
   snake.push(head);
 
-  if (apple && head.row === apple.row && head.col === apple.col)
-  {
+  if (apple && head.row === apple.row && head.col === apple.col) {
     spawnApple();
-    score += 50; 
+    score += 50;
     scoreDisplay.textContent = "Score: " + score;
-  }
-  else
-  {
+  } else {
     snake.shift();
   }
 
-  if (bread && head.row === bread.row && head.col === bread.col)
-  {
+  if (bread && head.row === bread.row && head.col === bread.col) {
     spawnBread();
-    score -= 50; 
+    score -= 50;
     scoreDisplay.textContent = "Score: " + score;
   }
-  if (snake.length === boardSize * boardSize)
-  {
+  if (snake.length === boardSize * boardSize) {
     endGame("You win :)");
   }
 }
 
-function handleKeydown(e)
-{
+function handleKeydown(e) {
   const allowed = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
 
-  const opposite =
-  {
+  const opposite = {
     "ArrowUp": "ArrowDown",
     "ArrowDown": "ArrowUp",
     "ArrowLeft": "ArrowRight",
-    "ArrowRight": "ArrowLeft"
+    "ArrowRight": "ArrowLeft",
   };
 
   //no doing 180s lol
-  if (allowed.includes(e.code) && e.code !== opposite[direction])
-  {
+  if (allowed.includes(e.code) && e.code !== opposite[direction]) {
     nextDirection = e.code;
     e.preventDefault();
   }
 }
 
-function updateGame()
-{
+function updateGame() {
   if (gameOver) return;
 
   moveSnake();
@@ -213,14 +179,12 @@ function updateGame()
   drawSnake();
 }
 
-function endGame(message)
-{
+function endGame(message) {
   gameOver = true;
   alert(message);
 }
 
-function startGame()
-{
+function startGame() {
   window.addEventListener("keydown", handleKeydown);
   spawnApple();
   spawnBread();
