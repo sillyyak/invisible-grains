@@ -3,7 +3,6 @@
 head {
   font-family: "Fraunces", serif;
   font-optical-sizing: auto;
-  font-weight: weight;
 }
 
 body {
@@ -21,16 +20,6 @@ h1 {
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 10px;
-}
-
-h2 {
-  padding-right: 3em;
-  padding-left: 3em;
-}
-
-h2.title {
-  border-color: #fde6c9;
-  border-width: 2px;
 }
 
 p {
@@ -73,19 +62,22 @@ img {
 
 a {
   color: black;
-}
-
-a:link {
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 a:hover {
   color: #646464;
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: white;
 }
 
 #snake-game {
   border: solid;
   color: green;
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+li + li {
+  margin-top: .5rem;
 }
