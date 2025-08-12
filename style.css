@@ -23,6 +23,7 @@ h1 {
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 10px;
+  text-align: center;
 }
 
 p + p {
@@ -77,14 +78,10 @@ ul {
   padding-left: 1rem;
 }
 
-li + li {
-  margin-top: 0.5rem;
-}
-
 section {
-  padding: 2rem 4rem;
+  padding: 0 4rem;
   max-width: 120ch;
-  margin: 0 auto;
+  margin: 2rem auto;
 }
 
 .photogrid {
