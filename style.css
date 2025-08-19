@@ -127,3 +127,8 @@ section {
 .instagram {
   justify-content: center;
 }
+
+#resources li {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
