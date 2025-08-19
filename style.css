@@ -11,7 +11,7 @@ head {
 }
 
 body {
-  background-color: #f1d3ad;
+  background-color: #fbeece;
   color: #4a413a;
 }
 
@@ -19,7 +19,7 @@ h1 {
   font-family: "Fraunces", serif;
   color: #4a413a;
   font-size: 50px;
-  background-color: #f1d3ad;
+  background-color: #fbeece;
   border: solid #f1d3ad 5px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -43,7 +43,7 @@ b {
 }
 
 #nav {
-  background-color: #f1d3ad;
+  background-color: #fbeece;
   font-size: 30px;
   padding: 1em 0;
   overflow-x: auto;
@@ -108,7 +108,7 @@ section {
 
 .callout {
   background: #4a413a;
-  color: #f1d3ad;
+  color: #fbeece;
   max-width: none;
 
   .center {
