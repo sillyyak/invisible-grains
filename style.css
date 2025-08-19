@@ -38,10 +38,6 @@ p {
   font-style: normal;
 }
 
-img:hover {
-  transform: scale(1.1);
-}
-
 #nav {
   background-color: #fde6c9;
   font-size: 30px;
@@ -87,9 +83,9 @@ ul {
 }
 
 section {
-  padding: 0 4rem;
+  padding: 2rem 4rem;
   max-width: 120ch;
-  margin: 2rem auto;
+  margin: 0 auto;
 }
 
 .photogrid {
@@ -100,6 +96,10 @@ section {
   img {
     width: 100%;
     aspect-ratio: 1 / 1;
+  }
+  
+  img:hover {
+    transform: scale(1.1);
   }
 }
 
