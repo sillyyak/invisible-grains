@@ -99,7 +99,7 @@ section {
   width: 100%;
 }
 
-callout {
+.callout {
     background: #4a413a;
     color: #fef2e6;
 }
