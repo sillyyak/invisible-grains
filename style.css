@@ -11,16 +11,16 @@ head {
 }
 
 body {
-  background-color: #fef2e6;
-  color: black;
+  background-color: #f1d3ad;
+  color: #4a413a;
 }
 
 h1 {
   font-family: "Fraunces", serif;
-  color: black;
+  color: #4a413a;
   font-size: 50px;
-  background-color: #fde6c9;
-  border: solid #fde6c9 5px;
+  background-color: #f1d3ad;
+  border: solid #f1d3ad 5px;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 10px;
@@ -43,7 +43,7 @@ b {
 }
 
 #nav {
-  background-color: #fde6c9;
+  background-color: #f1d3ad;
   font-size: 30px;
   padding: 1em 0;
   overflow-x: auto;
@@ -51,7 +51,7 @@ b {
   justify-content: center;
   position: sticky;
   top: 0;
-  color: black;
+  color: #4a413a;
   z-index: 1;
 }
 
@@ -69,7 +69,7 @@ b {
 }
 
 a {
-  color: black;
+  color: #4a413a;
   /* text-decoration: none; */
 }
 
@@ -108,7 +108,7 @@ section {
 
 .callout {
   background: #4a413a;
-  color: #fef2e6;
+  color: #f1d3ad;
   max-width: none;
 
   .center {
