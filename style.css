@@ -111,3 +111,9 @@ section {
     background: #4a413a;
     color: #fef2e6;
 }
+
+.headshot {
+    float: right;
+    width: 200px;
+    margin: 0 2em 2em;
+}
